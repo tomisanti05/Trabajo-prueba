@@ -233,29 +233,62 @@ a {
     height: 300px;
 }
 
-/* NEWSLETTER */
-.contact-section {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
+/* PREGUNTAS FRECUENTES (FAQ) */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.newsletter-form {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
 }
 
-.newsletter-form input {
-    padding: 12px;
-    width: 300px;
+.faq-question {
+    width: 100%;
+    background: none;
     border: none;
-    border-radius: 5px;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
 }
 
-.newsletter-form .btn {
-    background-color: var(--accent-color);
+.faq-question:hover {
+    color: var(--primary-color);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.faq-answer p {
+    padding-bottom: 15px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Clases activas que se agregan con JavaScript */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Expande la caja de respuesta */
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Gira el "+" para que parezca una "x" */
 }
 
 /* FOOTER */

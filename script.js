@@ -17,20 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lógica para el formulario de Newsletter
-    const newsletterForm = document.getElementById('newsletter-form');
-    const emailInput = document.getElementById('email-input');
+    // Lógica para el Acordeón de Preguntas Frecuentes (FAQ)
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Evita que la página se recargue
-        
-        const email = emailInput.value;
-        
-        if (email) {
-            // Simulamos el envío a un servidor
-            alert(`¡Excelente! El correo ${email} ha sido registrado para recibir novedades de Lancas.`);
-            newsletterForm.reset(); // Limpia el formulario
-        }
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const parent = question.parentElement;
+            
+            // Esto hace que si abrís una pregunta, se cierren las demás
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Abre o cierra la pregunta en la que hiciste clic
+            parent.classList.toggle('active');
+        });
     });
 
     // Efecto suave para el scroll (Smooth Scrolling) en los enlaces ancla
